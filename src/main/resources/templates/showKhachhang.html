@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="./css/bootstrap.css">
+
+    <style>
+        a:hover {
+            text-decoration: none;
+        }
+        #header,#footer {
+            background-color: aquamarine;
+        }
+        .big-button {
+            width: 80%;
+            height: 50px;
+            background-color: antiquewhite;
+        }
+        td {
+            padding-right: 5px;
+            text-align: center;
+        }
+        th {
+            text-align: center;
+            color: #6f42c1;
+        }
+        /*#body,#header,#footer {*/
+        /*    margin: auto;*/
+        /*    width: 80%;*/
+        /*}*/
+    .taomoi {
+        width: 350px;
+        height: 40px;
+        background-color: antiquewhite;
+        border-radius: 6px;
+    }
+    #search {
+        background-color: antiquewhite;
+    }
+    </style>
+</head>
+<body>
+<!-- begin header-->
+<div id="header">
+    <h3>Chào mừng đến với ngân hàng KITS</h3>
+    <h5>Thời gian hiện tại là 10h</h5>
+</div>
+<!--end header-->
+<!--begin body-->
+<div id="body" >
+<!--    <form action="/khachhang/search-khachhang" method="post">-->
+    <form action="/khachhang/search-khachhang" method="post">
+        <input name="searchKhachhang" style="width: 350px" type="text" placeholder="Tìm kiếm khách hàng theo tên hoặc Id">
+        <button id="search" type="submit">Tìm kiếm</button>
+    </form>
+   <table>
+       <tr>
+           <th>Mã khách hàng</th>
+          <th>Tên khách hàng</th>
+           <th>Chứng minh thư</th>
+           <th>Ngày sinh</th>
+           <th>Địa chỉ</th>
+           <th colspan="2">Thao tác</th>
+       </tr>
+       <th:block th:each="khachhang:${khachhangs}">
+        <tr>
+            <td th:text="${khachhang.makhachhang}"></td>
+            <td th:text="${khachhang.tenkhachhang}"></td>
+            <td th:text="${khachhang.chungminhthu}"></td>
+            <td th:text="${khachhang.ngaysinh}"></td>
+            <td th:text="${khachhang.diachi}"></td>
+            <td ><a th:href="@{/khachhang/edit-khachhang/{id}(id=${khachhang.getMakhachhang()})}">Sửa</a></td>
+            <td ><a th:href="@{/khachhang/xoa-khachhang/{id}(id=${khachhang.getMakhachhang()})}">Xóa</a></td>
+        </tr>
+
+       </th:block>
+
+
+
+   </table>
+    <a href=""></a>
+    <button class="taomoi"><a href="/khachhang/create-khachhang">Đăng kí khách hàng mới</a></button>
+
+</div>
+<!--end body-->
+<!--begin footer-->
+<div id="footer">
+    <h3>All rights reserved 2020 KITS Bank</h3>
+    <div id="footer-bar">
+        <a href="#">Về chúng tôi</a>
+        <a href="#">Liên hệ</a>
+        <a href="#">Thông tin tài chính</a>
+    </div>
+</div>
+<!--end footer-->
+</body>
+</html>
