@@ -1,11 +1,14 @@
 package com.kits.frontend2.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class Khachhang {
     private String makhachhang;
     private String tenkhachhang;
     private Long chungminhthu;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date ngaysinh;
     private String diachi;
     public Khachhang(){
