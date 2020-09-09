@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./css/bootstrap.css">
+
+    <style>
+        #header,#footer {
+            background-color: aquamarine;
+        }
+        table th {
+            text-align: center;
+        }
+        td {
+            padding-right: 5px;
+        }
+
+    </style>
+</head>
+<body>
+<!-- begin header-->
+<div id="header">
+    <h3>Chào mừng đến với ngân hàng KITS</h3>
+    <h5>Thời gian hiện tại là 10h</h5>
+</div>
+<!--end header-->
+<!--begin body-->
+<div id="body" >
+
+    <div class="row">
+        <form th:action="@{/nhanvien/create}" th:object="${nhanvien}" method="post" >
+            <table>
+                <tr>
+                    <td>Mã nhân viên</td>
+                    <td><input type="text" th:field="*{manhanvien}" ></td>
+                </tr>
+                <tr>
+                    <td>Chứng minh thư </td>
+                    <td><input type="text"th:field="*{chungminhthu}" ></td>
+                </tr>
+                <tr>
+                    <td>Tên nhân viên</td>
+                    <td><input type="text" th:field="*{tennhanvien}" ></td>
+                </tr>
+                <tr>
+                    <td>Ngày sinh</td>
+                    <td><input type="text" th:field="*{ngaysinh}" ></td>
+
+                </tr>
+                <tr>
+                    <td>Bậc nghề</td>
+                    <td><input type="text" th:field="*{bacnghe}" ></td>
+                </tr>
+                <tr>
+                    <td>Thâm niên</td>
+                    <td><input type="text" th:field="*{thamnien}" ></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="gui"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+
+</div>
+<!--end body-->
+<!--begin footer-->
+<div id="footer">
+    <h3>All rights reserved 2020 KITS Bank</h3>
+    <div id="footer-bar">
+        <a href="#">Về chúng tôi</a>
+        <a href="#">Liên hệ</a>
+        <a href="#">Thông tin tài chính</a>
+    </div>
+</div>
+<!--end footer-->
+</body>
+</html>
